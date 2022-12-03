@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Listado de productos</title>
+<!-- CSS only -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<a class="navbar-brand" href="/inicio/"> Volver al inicio</a>
+		<!-- Navbar links -->
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/inicio/productos}">Control de productos</a></li>
+			</ul>
+		</div>
+	</nav>
+
+
+	<div class="container">
+		<div class="row">
+			<h1>Lista de productos</h1>
+		</div>
+		<div class="row">
+		   <div class="col-lg-3">
+		     <a th:href="@{/inicio/productos/nuevo}" class="btn btn-primary btn-sm mb3">Agregar producto</a>
+		   </div>
+		</div>
+		<br>
+		<table class="table table-striped table-dark">
+			<thead class="table-dark">
+				<tr>
+					<th>Cod_Producto</th>
+					<th>Nombre</th>
+					<th>Precio</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="producto : ${productos}">
+					<td th:text="${producto.cod_Producto}">Cod_Producto</td>
+					<td th:text="${producto.nombre}">Nombre</td>
+					<td th:text="${producto.precio}">Precio</td>
+					<td>
+					  <a th:href="@{/inicio/productos/editar/{Cod_Producto}(Cod_Producto=${producto.Cod_Producto})}" class="btn btn-info">Editar</a>
+					  <a th:href="@{/inicio/productos/{Cod_Producto}(Cod_Producto=${producto.Cod_Producto})}" class="btn btn-danger">Eliminar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>
