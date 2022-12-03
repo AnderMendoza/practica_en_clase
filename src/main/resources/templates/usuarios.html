@@ -10,12 +10,12 @@
 
 
 	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-		<a class="navbar-brand" href="#"> Control de usuarios</a>
+		<a class="navbar-brand" href="/inicio/"> Volver al inicio</a>
 		<!-- Navbar links -->
-		<div class="collapse navbar-collapse" Cod_Usuario="collapsibleNavbar">
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link"
-					th:href="@{/usuarios}">Control de usuarios</a></li>
+					th:href="@{/inicio/usuarios}">Control de usuarios</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -27,7 +27,7 @@
 		</div>
 		<div class="row">
 		   <div class="col-lg-3">
-		     <a th:href="@{/usuarios/nuevo}" class="btn btn-primary btn-sm mb3">Agregar usuario</a>
+		     <a th:href="@{/inicio/usuarios/nuevo}" class="btn btn-primary btn-sm mb3">Agregar usuario</a>
 		   </div>
 		</div>
 		<br>
@@ -50,8 +50,8 @@
 					<td th:text="${usuario.password}">Password</td>
 					<td th:text="${usuario.cod_Sucursal}">Cod_Sucursal</td>
 					<td>
-					  <a th:href="@{/usuarios/editar/{Cod_Usuario}(Cod_Usuario=${usuario.Cod_Usuario})}" class="btn btn-info">Editar</a>
-					  <a th:href="@{/usuarios/{Cod_Usuario}(Cod_Usuario=${usuario.Cod_Usuario})}" class="btn btn-danger">Eliminar</a>
+					  <a th:href="@{/inicio/usuarios/editar/{Cod_Usuario}(Cod_Usuario=${usuario.Cod_Usuario})}" class="btn btn-info">Editar</a>
+					  <a th:href="@{/inicio/usuarios/{Cod_Usuario}(Cod_Usuario=${usuario.Cod_Usuario})}" class="btn btn-danger">Eliminar</a>
 					</td>
 				</tr>
 			</tbody>
