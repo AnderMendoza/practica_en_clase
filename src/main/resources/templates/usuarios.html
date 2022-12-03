@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Listado de usuarios</title>
+<!-- CSS only -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<a class="navbar-brand" href="#"> Control de usuarios</a>
+		<!-- Navbar links -->
+		<div class="collapse navbar-collapse" Cod_Usuario="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/usuarios}">Control de usuarios</a></li>
+			</ul>
+		</div>
+	</nav>
+
+
+	<div class="container">
+		<div class="row">
+			<h1>Lista de usuarios</h1>
+		</div>
+		<div class="row">
+		   <div class="col-lg-3">
+		     <a th:href="@{/usuarios/nuevo}" class="btn btn-primary btn-sm mb3">Agregar usuario</a>
+		   </div>
+		</div>
+		<br>
+		<table class="table table-striped table-dark">
+			<thead class="table-dark">
+				<tr>
+					<th>Cod_Usuario</th>
+					<th>Nombre</th>
+					<th>User</th>
+					<th>Password</th>
+					<th>Cod_Sucursal</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="usuario : ${usuarios}">
+					<td th:text="${usuario.cod_Usuario}">Cod_Usuario</td>
+					<td th:text="${usuario.nombre}">Nombre</td>
+					<td th:text="${usuario.user}">User</td>
+					<td th:text="${usuario.password}">Password</td>
+					<td th:text="${usuario.cod_Sucursal}">Cod_Sucursal</td>
+					<td>
+					  <a th:href="@{/usuarios/editar/{Cod_Usuario}(Cod_Usuario=${usuario.Cod_Usuario})}" class="btn btn-info">Editar</a>
+					  <a th:href="@{/usuarios/{Cod_Usuario}(Cod_Usuario=${usuario.Cod_Usuario})}" class="btn btn-danger">Eliminar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>
